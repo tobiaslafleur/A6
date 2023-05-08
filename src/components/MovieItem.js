@@ -1,10 +1,6 @@
 import Image from "next/image";
 
-export default function MovieItem({ movie }) {
-  const deleteMovie = () => {
-    console.log("Hello");
-  };
-
+export default function MovieItem({ movie, index, handleRemove }) {
   return (
     <div className="flex flex-row justify-between bg-gray-100 rounded-sm py-2 px-4">
       <p className="text-lg">{movie.title}</p>
@@ -22,13 +18,14 @@ export default function MovieItem({ movie }) {
               />
             );
           })}
+
         <Image
           src="/delete.png"
           alt="star"
           width="30"
           height="30"
-          onClick={deleteMovie}
           className="cursor-pointer"
+          onClick={() => handleRemove(index)}
         />
       </div>
     </div>
